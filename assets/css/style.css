@@ -1,0 +1,768 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+/* variavel */
+
+:root{
+    --body-color: rgb(250, 250, 250);
+    --color-white: rgb(255, 255, 255);
+
+    --text-color-second: rgb(68, 68, 68);
+    --text-color-third: #000079;
+
+    --first-color: rgb(40, 91, 212);
+    --first-color-hover: #341cbb;
+
+    --second-color: #4525d1;
+    --third-color: #a6b1e1;
+    --first-shadow-color: rgba(0, 0, 0, 0.1);
+
+}
+
+/* Base */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ----- SMOOTH SCROLL ----- */
+html{
+    scroll-behavior: smooth;
+}
+
+/* ----- CHANGE THE SCROLL BAR DESIGN ----- */
+::-webkit-scrollbar{
+    width: 10px;
+    border-radius: 25px;
+}
+::-webkit-scrollbar-track{
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb{
+    background: #ccc;
+    border-radius: 30px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: #bbb;
+}
+
+/* Parte do CSS */
+.btn{
+    font-weight: 500;
+    padding: 12px 20px;
+    background: #efefef;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .4s;
+}
+.btn>i{
+    margin-left: 10px;
+}
+.btn:hover{
+    background: var(--second-color);
+    color: var(--color-white);
+}
+
+/* ----- GLOBAL ICONS DESIGN ----- */
+i{
+    font-size: 16px;
+}
+
+/* ------- BASE -------- */
+body{
+    background: var(--body-color);
+}
+.container{
+    width: 100%;
+    position: relative;
+}
+
+/* ----- NAVIGATION BAR ----- */
+nav{
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 90px;
+    line-height: 90px;
+    background: var(--body-color);
+    padding-inline: 9vw;
+    transition: .3s;
+    z-index: 100;
+}
+.nav-logo{
+   position: relative;
+}
+.nav-name{
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--text-color-third);
+}
+.nav-logo span{
+    position: absolute;
+    top: -15px;
+    right: -20px;
+    font-size: 5em;
+    color: var(--text-color-second);
+}
+.nav-menu, .nav_menu_list{
+    display: flex;
+}
+.nav-menu .nav_list{
+    list-style: none;
+    position: relative;
+}
+.nav-link{
+    text-decoration: none;
+    color: var(--text-color-second);
+    font-weight: 500;
+    padding-inline: 15px;
+    margin-inline: 20px;
+}
+
+/* Botão Navbar */
+.nav-menu-btn{
+    display: none;
+}
+.nav-menu-btn i{
+    font-size: 28px;
+    cursor: pointer;
+}
+.active-link{
+    position: relative;
+    color: var(--first-color);
+    transition: .3;
+}
+.active-link::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px; /* Ajusta a distância do traço em relação à palavra */
+    transform: translateX(-50%); /* Centraliza o traço */
+    width: 50px; /* Define a largura do traço */
+    height: 2px; /* Define a altura do traço para deixá-lo fino */
+    background: var(--first-color); /* Cor do traço */
+    border-radius: 50%; /* Remove o arredondamento */
+}
+
+/* Navbar responsive */
+@media only screen and (max-width: 900px) {
+    .nav-button{
+        display: none;
+    }
+    .nav-menu.responsive{
+        left: 0;
+    }
+    .nav-menu{
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        width: 100%;
+        min-height: 450px;
+        height: 90vh;
+        transition: .3s;
+    }
+    .nav_menu_list{
+        flex-direction: column;
+    }
+    .nav-menu-btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .featured-box{
+        flex-direction: column;
+        justify-content: center;
+        height: -100vh;
+    }
+    .featured-text{
+        width: 100%;
+        order: 2;
+        justify-content: center;
+        align-content: flex-start;
+        min-height: 190vh;
+    }
+    .social_icons{
+        margin-top: 2em;
+    }
+    .featured-image{
+        order: 1;
+        justify-content: center;
+        min-height: 150px;
+        width: 100%;
+        margin-top: 65px;
+    }
+    .image, .image img{
+        width: 150px;
+        height: 150px;
+    }
+    .row{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 50px;
+    }
+    .col{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .about-info, .contact-info{
+        width: 100%;
+    }
+    .project-container{
+        justify-content: center;
+    }
+    .project-box{
+        width: 80%;
+    }
+
+}
+
+/* ----- WRAPPER DESIGN ----- */
+.wrapper{
+    padding-inline: 10vw;
+}
+
+/* ----- FEATURED BOX ----- */
+.featured-box{
+    position: relative;
+    display: flex;
+    height: 100vh;
+    min-height: 700px;
+}
+
+/* ----- FEATURED TEXT BOX ----- */
+.featured-text{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    min-height: 80vh;
+    flex-direction: column;
+    width: 50%;
+    padding-left: 20px;
+}
+.featured-text-card span{
+    background: var(--third-color);
+    color: var(--color-white);
+    padding: 3px 8px;
+    font-size: 12px;
+    border-radius: 5px;
+}
+.featured-name{
+    font-size: 50px;
+    font-weight: 600;
+    color: var(--text-color-second);
+    margin-block: 20px;
+}
+.typedText{
+    text-transform: capitalize;
+    color: var(--text-color-third);
+}
+.featured-text-info{
+    font-size: 18px;
+    margin-bottom: 50px;
+    text-align: justify;
+    color: var(--text-color-second);
+}
+.featured-text-btn{
+    display: flex;
+    gap: 20px;
+}
+.featured-text-btn>.blue-btn{
+    background: var(--first-color);
+    color: var(--color-white);
+}
+.featured-text-btn>.blue-btn:hover{
+    background: var(--first-color-hover);
+}
+a {
+    text-decoration: none;
+  }
+
+
+/* ----- FEATURED IMAGE BOX ----- */
+.featured-image {
+    display: flex;
+    justify-content: absolute;
+    align-items: center;
+    min-height: 80vh;
+    width: 50%;
+    position: relative;
+}
+
+.image {
+    position: relative;
+    line-height: 0;
+    border-radius: 1rem; /* Arredondamento das bordas da imagem */
+    min-width: 25rem; /* Largura mínima */
+    max-width: 70%; /* Largura máxima */
+    transform: translateX(10rem); /* Deslocamento da imagem */
+}
+
+.image::after {
+    content: '';
+    display: block;
+    width: 90%; /* Largura da borda de destaque */
+    height: 100%; /* Altura da borda de destaque */
+    border: 1px solid cadetblue; /* Cor da borda */
+    position: absolute;
+    top: -1.5rem;
+    right: -1.5rem;
+    border-radius: 0.5rem; /* Bordas arredondadas para o contorno */
+    z-index: -1;
+}
+
+/* minha foto */
+.image img.José {
+    width: 100%; /* Preenche todo o elemento pai */
+    height: auto; /* Mantém a proporção da imagem */
+    object-fit: cover; /* Garante que a imagem preencha o contêiner */
+    border-radius: 1rem;
+    animation: imgFloat 7s ease-in-out infinite;
+
+}
+
+/* textura */
+.background {
+    position: absolute;
+    top: 50%;
+    right: 5rem;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+@keyframes imgFloat {
+    50%{
+        transform: translateY(10px);
+    }
+}
+
+/* scroll */
+.scroll-btn{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    translate: -50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    gap: 5px;
+    text-decoration: none;
+    color: var(--text-color-second);
+    background: var(--color-white);
+    border-radius: 30px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+ }
+ .scroll-btn i{
+     font-size: 20px;
+ }
+
+/* ----- MEDIA QUERY == 1024px / RESPONSIVE ----- */
+@media only screen and (max-width: 1024px){
+    .featured-text{
+        padding: 0;
+    }
+    .image, .image img{
+        width: 320px;
+        height: 320px;
+    }
+}
+
+/* ----- MAIN BOX ----- */
+.max-width{
+    padding-block: 10em;
+}
+
+.about {
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem; /* Alterado para combinar com o segundo exemplo */
+    scroll-margin-top: 20rem; /* Ajustado para o valor desejado */
+}
+
+/* redes sociais */
+.about .top-header{
+    max-width: 40rem;
+    flex: 1;
+    margin: 1rem 0 2rem;
+    margin-left: -1.2rem;/* Ajuste na margem esquerda */
+    font-size: 18px;
+    
+}
+
+.about .top-header ul li {
+    display: inline-block;
+}
+
+.about .top-header ul li a {
+    display: inline-block;
+    padding: 1rem;
+}
+
+.social_icons{
+    display: flex;
+    margin-top: 1rem;
+    gap: 30px;
+}
+.icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    color: var(--text-color-third);
+}
+.icon:hover{
+    color: var(--second-color);
+}
+
+/* texto sobre mim */
+.about .col {
+    flex: 1;
+    max-width: 55rem; 
+    text-align: justify;
+    font-size: 18px;
+}
+
+.about .col p {
+    margin-bottom: 1rem; 
+}
+
+.top-header h1 {
+    font-weight: 600;
+    color: var(--text-color-third);
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.top-header span {
+    color: #999;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-color-third);
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+/* skills */
+
+/* Estilo geral da seção */
+.section {
+    scroll-margin-top: 15rem; /* Margem superior para ancoragem */
+    text-align: center; /* Centraliza texto horizontalmente */
+    padding: 6rem 4rem; /* Espaçamento interno */
+}
+
+/* Cabeçalho da seção */
+.section .top-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-color-third); /* Cor do título */
+}
+
+.section .top-header .description {
+    max-width: 56rem;
+    margin: 0 auto 6rem;
+    font-size: 1.2rem;
+    color: #555; /* Cor da descrição */
+}
+
+/* Contêiner de projetos */
+.project-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Estilo de cada caixa */
+.project-box {
+    position: relative;
+    width: 30%; /* Largura proporcional ao layout */
+    max-width: 400px; /* Largura máxima maior para manter o formato largo */
+    height: 250px; /* Altura ajustada */
+    background: var(--color-white, #fff);
+    border-radius: 20px;
+    box-shadow: 1px 8px 10px 2px var(--first-shadow-color, rgba(0, 0, 0, 0.1));
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    transition: transform 0.3s ease; /* Efeito de elevação */
+}
+
+/* A imagem deve ocupar toda a área da caixa */
+.project-box img {
+    position: absolute; /* A imagem será posicionada sobre a caixa */
+    top: 0;
+    left: 0;
+    width: 100%; /* Garante que a imagem ocupe toda a largura da caixa */
+    height: 100%; /* Garante que a imagem ocupe toda a altura da caixa */
+    object-fit: cover; /* Faz a imagem cobrir a área sem distorcer */
+}
+
+/* Estilo do texto fixo sobre a imagem */
+.project-box .overlay-text {
+    position: absolute; /* Texto posicionado sobre a imagem */
+    top: 50%; /* Alinha verticalmente no meio */
+    left: 50%; /* Alinha horizontalmente no meio */
+    transform: translate(-50%, -50%); /* Ajusta a posição exata */
+    color: white; /* Cor do texto */
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adiciona sombra para destacar o texto */
+    z-index: 2; /* Garante que o texto fique sobre a imagem */
+    text-align: center;
+    opacity: 1; /* Inicialmente o texto é visível */
+    transition: opacity 0.3s ease; /* Transição suave */
+}
+
+/* Quando o mouse passa sobre a caixa, o texto desaparece */
+.project-box:hover .overlay-text {
+    opacity: 0; /* Faz o texto desaparecer */
+}
+
+
+/* Efeito de elevação ao passar o mouse */
+.project-box:hover {
+    transform: translateY(-10px);
+}
+
+/* Esconde a imagem e o título ao hover */
+.project-box img,
+.project-box h3 {
+    transition: opacity 0.4s ease; /* Transição suave */
+}
+
+/* Reduz opacidade da imagem e título ao hover */
+.project-box:hover img,
+.project-box:hover h3 {
+    opacity: 0.3;
+}
+ 
+/* Descrição escondida inicialmente */
+.hidden-description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--second-color); /* Fundo azul translúcido */
+    color: white;
+    padding: 1rem;
+    font-size: 1rem;
+    opacity: 0;
+    transform: translateY(100%); /* Começa fora da visão */
+    transition: all 0.4s ease; /* Transição suave */
+    text-align: center;
+    z-index: 1;
+}
+
+/* Mostra a descrição ao passar o mouse */
+.project-box:hover .hidden-description {
+    opacity: 1;
+    transform: translateY(0); /* Move para a posição visível */
+    z-index: 2; /* Garante que fique acima dos outros elementos */
+}
+
+
+/* Projetos */
+
+.projects .top-header .description {
+    max-width: 56rem;
+    margin: 0 auto 6rem;
+    font-size: 1.2rem;
+    color: #555; /* Cor da descrição */
+}
+
+.projects .top-header {
+    max-width: 56rem;
+    text-align: center;
+    margin: 0 auto 6rem;
+}
+
+
+/* Container principal */
+.projects__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.project {
+    display: flex;
+    align-items: center; /* Alinha a imagem e o texto no centro verticalmente */
+    gap: 2rem; /* Espaçamento entre a imagem e o texto */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem; /* Adiciona espaçamento interno */
+}
+
+/* Configuração para as imagens */
+.project .image-projects {
+    flex-shrink: 0; /* Garante que as imagens não sejam redimensionadas */
+}
+
+.project .image-projects img {
+    max-width: 300px; /* Limita a largura máxima */
+    width: 100%; /* Garante que a imagem seja responsiva */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 8px;
+    object-fit: cover; /* Garante que a imagem preencha bem o espaço */
+}
+
+/* Informações do projeto */
+.project .projects__info {
+    flex: 1; /* Faz o texto ocupar o espaço restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza o texto verticalmente */
+}
+
+/* Alternância de layout */
+.project:nth-child(odd) {
+    flex-direction: row; /* Imagem à esquerda */
+}
+
+.project:nth-child(even) {
+    flex-direction: row-reverse; /* Imagem à direita */
+}
+
+/* Estilização de texto */
+.project h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #1a237e; /* Azul escuro */
+}
+
+.project p {
+    font-size: 1rem;
+    color: #555; /* Cinza para o texto */
+    line-height: 1.5;
+}
+
+/* Link para ver mais */
+.project__link {
+    margin-top: 1rem;
+    color: #007bff; /* Azul para o link */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.project__link:hover {
+    text-decoration: underline;
+    color: #0056b3; /* Azul mais escuro no hover */
+}
+
+.project:nth-child(2) .projects__info {
+    padding: 1.5rem; /* Adiciona espaçamento interno ao texto */
+}
+
+.project {
+    opacity: 0;
+    transform: translateX(0); /* Posição final */
+    transition: all 0.6s ease-out;
+  }
+  
+  .project:nth-child(odd) {
+    transform: translateX(100px); /* Posição inicial: fora à direita */
+  }
+  
+  .project:nth-child(even) {
+    transform: translateX(-100px); /* Posição inicial: fora à esquerda */
+  }
+  
+  .project.show {
+    opacity: 1;
+    transform: translateX(0); /* Alinhado ao centro */
+  }
+  
+/* Responsividade */
+@media (max-width: 768px) {
+    .project {
+        flex-direction: column !important; /* Imagem e texto em coluna */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .project .image-projects img {
+        max-width: 100%;
+    }
+}
+
+
+
+
+/* ----- FOOTER BOX ----- */
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 30px;
+    background: #F8F8F8;
+    padding-block: 40px 60px;
+}
+.top-footer p{
+    font-size: 25px;
+    font-weight: 600;
+}
+.middle-footer .footer-menu{
+    display: flex;
+}
+.footer_menu_list{
+    list-style: none;
+}
+.footer_menu_list a{
+    text-decoration: none;
+    color: var(--text-color-second);
+    font-weight: 500;
+    margin-inline: 20px;
+}
+
+.footer-social-icons {
+    display: flex;             /* Alinha os itens horizontalmente */
+    gap: 30px;                 /* Espaçamento entre os ícones */
+    justify-content: center;   /* Centraliza os ícones horizontalmente */
+    align-items: center;       /* Alinha os ícones verticalmente */
+}
+
+.footer-social-icons a {
+    color: var(--text-color-third);               /* Cor dos ícones */
+    font-size: 2rem;           /* Tamanho do ícone */
+    transition: color 0.3s ease; /* Transição suave para a cor */
+}
+
+.footer-social-icons a:hover {
+    color: var(--second-color);               /* Cor do ícone ao passar o mouse */
+}
+
+
+.bottom-footer{
+    font-size: 14px;
+    margin-top: 10px;
+}
